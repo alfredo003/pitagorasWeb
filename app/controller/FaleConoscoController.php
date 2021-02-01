@@ -11,7 +11,7 @@ use app\classes\Input;
 class FaleConoscoController extends Controller
 {
   private $faleConoscoModel;
- private $d;
+  private $id;
   public function __construct()
   {
     $this->faleConoscoModel = new FaleConoscoModel();
@@ -42,6 +42,7 @@ class FaleConoscoController extends Controller
       'id'   => Input::get('id', FILTER_SANITIZE_NUMBER_INT),
       'fullname' => Input::post('fullname'),
       'email' => Input::post('email'),
+      'title' => Input::post('title'),
       'message' => Input::post('message'),
     ];
   }

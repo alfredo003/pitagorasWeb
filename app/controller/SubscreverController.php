@@ -41,7 +41,6 @@ class SubscreverController extends Controller
     return (object)[
       'id'   => Input::get('id', FILTER_SANITIZE_NUMBER_INT),
       'email' => Input::post('email'),
-    
     ];
   }
 

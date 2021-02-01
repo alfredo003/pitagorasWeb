@@ -19,7 +19,7 @@ class SubscreverModel
 
     public function insert(Object $params)
     {
-        $sql = 'INSERT INTO `tbl_signup`(`email`) VALUES (:email)';
+        $sql = 'INSERT INTO `tbl_email`(`email`) VALUES (:email)';
         $params = [
             'email' => $params->email
          ];
@@ -32,7 +32,7 @@ class SubscreverModel
 
     public function getAll($params)
     {
-        $sql = 'SELECT * FROM `tbl_signup`';
+        $sql = 'SELECT * FROM `tbl_email`';
         $dt = $this->pdo->executeQuery($sql);
         $listMessage = null;
 

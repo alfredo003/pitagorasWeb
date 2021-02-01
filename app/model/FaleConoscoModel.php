@@ -19,10 +19,11 @@ class FaleConoscoModel
 
     public function insert(Object $params)
     {
-        $sql = 'INSERT INTO `tbl_sms`(`full_name`, `email`, `sms`) VALUES (:fullname, :email, :sms)';
+        $sql = 'INSERT INTO `tbl_speak_us`(`name`, `id_email`, `title`, `message`) VALUES (:fullname, :id_email, :title, :sms)';
         $params = [
             'fullname' => $params->fullname,
-            'email' => $params->email,
+            'id_email' => $params->id_email,
+            'title' => $params->title,
             'sms' => $params->message
         ];
 

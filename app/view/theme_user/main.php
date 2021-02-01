@@ -10,24 +10,24 @@
   <meta content="" name="keywords">
 
  <!-- para mudar ícone-->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{BASE}}public/img/favicon.png" rel="icon">
+  <link href="{{BASE}}public/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="{{BASE}}public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{BASE}}public/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="{{BASE}}public/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="{{BASE}}public/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="{{BASE}}public/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="{{BASE}}public/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="{{BASE}}public/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="{{BASE}}public/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="{{BASE}}public/css/style.css" rel="stylesheet">
 </head>
 
 <body style="font-family:calibri;">
@@ -52,10 +52,10 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="#header" class="scrollto" style="font-size:10px;"><img src="assets/img/apple-touch-icon.png"> Colegios Pitagoras - Namibe</a></h1>
+      <h1 class="logo mr-auto"><a href="#header" class="scrollto" style="font-size:10px;"><img src="{{BASE}}public/img/apple-touch-icon.png"> Colegios Pitagoras - Namibe</a></h1>
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.php">Página Inicial</a></li>
+          <li class="active"><a href="{{BASE}}home">Página Inicial</a></li>
          
           <li><a href="#about">Sobre Nós</a></li>
            <li><a href="##">Jornal Escolar</a></li>
@@ -472,29 +472,28 @@
 
           <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="{{BASE}}submit-sms" method="POST" role="form" class="php-email-form" id="form_falaconosco">
               <div class="form-row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Nome" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <input type="text" name="fullname" class="form-control" id="fullname" placeholder="Nome" data-rule="minlen:4" data-msg="Porfavor informe-nos o seu nome" />
                   <div class="validate"></div>
                 </div>
                 <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Porfavor preecha um email válido" />
                   <div class="validate"></div>
                 </div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <input type="text" class="form-control" name="title" id="title" placeholder="Assunto" data-rule="minlen:4" data-msg="Em poucas palavras especifica o assunto da mensagem" />
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Mensagem"></textarea>
+                <textarea class="form-control" name="message" rows="20" data-rule="required" data-msg="Porfavor informa a mensagem aqui..." placeholder="Mensagem"></textarea>
                 <div class="validate"></div>
               </div>
               <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <div class="loading">enviar...</div>
+               
               </div>
               <div class="text-center"><button type="submit">Enviar Mensagem</button></div>
             </form>
@@ -519,8 +518,8 @@
             <p>No formulário a baixo digite o seu email, de modo que possas receber novas notícias acerca do Cólegio Pitágoras</p>
           </div>
           <div class="col-lg-6">
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit"  value="Subscrever">
+            <form action="{{BASE}}submit-email" method="POST" id="form_subscrever">
+              <input type="email" name="email"  id="email"><input type="submit"  value="Subscrever">
             </form>
           </div>
         </div>
@@ -586,9 +585,7 @@
       <div class="copyright">
         &copy; Copyright <strong><span>Colégio Pitágoras-Namibe</span></strong>. Todos os direitos reservados
       </div>
-      <div class="credits">
-        Criado por <a href="https://bootstrapmade.com/">TIMO</a>
-      </div>
+      
     </div>
   </footer><!-- End Footer -->
 
@@ -596,18 +593,19 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="assets/vendor/venobox/venobox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="{{BASE}}public/vendor/jquery/jquery.min.js"></script>
+  <script src="{{BASE}}public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{{BASE}}public/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="{{BASE}}public/vendor/php-email-form/validate.js"></script>
+  <script src="{{BASE}}public/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="{{BASE}}public/vendor/venobox/venobox.min.js"></script>
+  <script src="{{BASE}}public/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="{{BASE}}public/vendor/aos/aos.js"></script>
+  
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+  <script src="{{BASE}}public/js/main.js"></script>
+  <script src="{{BASE}}public/js/subscrever.js"></script>
 </body>
 
 </html>
